@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-white text-slate-900;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3.5 text-white font-bold rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-xl active:shadow-none tracking-tight text-sm;
+    background-color: #BE0000;
+    box-shadow: 0 20px 25px -5px rgba(153, 0, 0, 0.2);
+  }
+  .btn-primary:hover {
+    background-color: #990000;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-3.5 bg-transparent border-2 border-slate-200 text-slate-900 font-bold rounded-full transition-all duration-300 hover:bg-slate-50 hover:border-slate-300 hover:scale-[1.02] active:scale-95 tracking-tight text-sm;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-slate-100 rounded-3xl p-8 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:-translate-y-1;
+    border-color: rgba(226, 232, 240, 0.8);
+  }
+  .glass-card:hover {
+    border-color: rgba(190, 0, 0, 0.2);
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-bold text-slate-900 tracking-tighter leading-[0.9] mb-6;
+  }
+
+  .section-subtitle {
+    @apply font-bold tracking-tighter text-lg mb-4 block;
+    color: #BE0000;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: white;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full border-2 border-white;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-300;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-300;
+}
