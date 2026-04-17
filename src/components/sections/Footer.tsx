@@ -75,17 +75,34 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-black mb-8 uppercase tracking-[0.2em] text-sm">Contact</h4>
             <ul className="space-y-6">
-              <li className="flex gap-4 text-slate-400 text-base font-medium">
-                <MapPin size={20} className="text-luynes-red shrink-0" />
-                <span>Stade Laurent Ruzzettu,<br />13080 Luynes, France</span>
+              <li>
+                <a 
+                  href="https://maps.google.com/?q=Stade+Laurent+Ruzzettu+13080+Luynes+France"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex gap-4 text-slate-400 text-base font-medium hover:text-white transition-colors group"
+                >
+                  <MapPin size={20} className="text-luynes-red shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>Stade Laurent Ruzzettu,<br />13080 Luynes, France</span>
+                </a>
               </li>
-              <li className="flex gap-4 text-slate-400 text-base font-medium items-center">
-                <Phone size={20} className="text-luynes-red shrink-0" />
-                <span>+33 4 42 24 07 03</span>
+              <li>
+                <a 
+                  href="tel:+33442240703"
+                  className="flex gap-4 text-slate-400 text-base font-medium items-center hover:text-white transition-colors group"
+                >
+                  <Phone size={20} className="text-luynes-red shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>+33 4 42 24 07 03</span>
+                </a>
               </li>
-              <li className="flex gap-4 text-slate-400 text-base font-medium items-center">
-                <Mail size={20} className="text-luynes-red shrink-0" />
-                <span>contact@luynes-sports.fr</span>
+              <li>
+                <a 
+                  href="mailto:contact@luynes-sports.fr"
+                  className="flex gap-4 text-slate-400 text-base font-medium items-center hover:text-white transition-colors group"
+                >
+                  <Mail size={20} className="text-luynes-red shrink-0 group-hover:scale-110 transition-transform" />
+                  <span>contact@luynes-sports.fr</span>
+                </a>
               </li>
             </ul>
           </div>
