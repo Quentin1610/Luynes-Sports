@@ -78,12 +78,12 @@ export const News = () => {
                   <p className="text-slate-500 text-base leading-relaxed mb-6 font-medium">
                     {item.excerpt}
                   </p>
-                  
+
                   {item.cta && (
                     <div className="mb-8">
-                      <Link 
-                        to="#" 
-                        className="inline-flex items-center gap-3 bg-luynes-red text-white px-8 py-4 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-luynes-red-hover transition-all duration-300 group/btn shadow-lg hover:shadow-luynes-red/20 hover:-translate-y-0.5 active:translate-y-0"
+                      <Link
+                        to="#"
+                        className="inline-flex items-center gap-3 bg-luynes-red text-white px-6 py-3 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-luynes-red-hover transition-all duration-300 group/btn shadow-lg hover:shadow-luynes-red/20 hover:-translate-y-0.5 active:translate-y-0"
                       >
                         {item.cta}
                         <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />

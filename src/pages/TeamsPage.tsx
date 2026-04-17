@@ -104,7 +104,7 @@ export const TeamsPage = () => {
                     <motion.div
                       key={tIdx}
                       variants={fadeIn}
-                      className="glass-card flex items-center justify-between group cursor-pointer hover:bg-luynes-red transition-all duration-500 overflow-hidden relative"
+                      className="glass-card !bg-slate-50/80 flex items-center justify-between group cursor-pointer hover:bg-luynes-red transition-all duration-500 overflow-hidden relative"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-luynes-red to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       
@@ -180,8 +180,8 @@ export const TeamsPage = () => {
               <div className="lg:w-5/12 w-full">
                 <div className="glass-card !bg-white/5 backdrop-blur-3xl !border-white/10 p-10 space-y-6">
                   <h3 className="text-white font-black text-2xl mb-6 tracking-tight">Besoin d'aide ?</h3>
-                  <button className="btn-primary w-full py-6 text-base tracking-widest">Dossier d'inscription</button>
-                  <button className="btn-secondary w-full py-6 text-base !text-white !border-white/20 hover:!bg-white/10 tracking-widest">Planning entraînements</button>
+                  <button className="btn-primary w-full">Dossier d'inscription</button>
+                  <button className="btn-secondary w-full !text-white !border-white/20 hover:!bg-white/10">Planning entraînements</button>
                 </div>
               </div>
             </div>

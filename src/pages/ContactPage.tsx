@@ -165,7 +165,7 @@ export const ContactPage = () => {
                     ></textarea>
                   </div>
 
-                  <button className="btn-primary min-w-[240px] py-6 text-base tracking-widest flex items-center justify-center gap-4 group">
+                  <button className="btn-primary min-w-[200px] flex items-center justify-center gap-4 group">
                     <span className="relative z-10 flex items-center gap-4">
                       Envoyer le message <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </span>

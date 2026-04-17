@@ -67,7 +67,7 @@ export const Sponsors = () => {
               </p>
             </div>
             
-            <Link to="/contact" className="btn-primary min-w-[220px] relative z-10">
+            <Link to="/contact" className="btn-primary min-w-[200px] relative z-10">
               Nous contacter
             </Link>
           </div>
