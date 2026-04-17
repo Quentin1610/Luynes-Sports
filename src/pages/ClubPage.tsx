@@ -1,27 +1,28 @@
 import { motion } from 'framer-motion';
-import { Shield, Users, Trophy, Target, Heart, Zap } from 'lucide-react';
+import { Shield, Users, Trophy } from 'lucide-react';
 import { Footer } from '../components/sections/Footer';
+import { revealUp, staggerContainer, fadeIn } from '../constants/animations';
 
 const stats = [
-  { label: 'Licenciés', value: '700+' },
-  { label: 'Équipes', value: '30+' },
+  { label: 'Licenciés', value: '730+' },
+  { label: 'Équipes', value: '34+' },
   { label: 'Bénévoles', value: '50+' },
-  { label: 'Ans d\'histoire', value: '75+' },
+  { label: 'Années d\'histoire', value: '78' },
 ];
 
 const values = [
   {
-    icon: <Users className="w-8 h-8 text-luynes-red" />,
+    icon: <Users className="w-8 h-8" />,
     title: "Esprit de Famille",
     description: "Plus qu'un club, nous sommes une communauté soudée où l'humain est au cœur de chaque projet."
   },
   {
-    icon: <Shield className="w-8 h-8 text-luynes-red" />,
+    icon: <Shield className="w-8 h-8" />,
     title: "Respect & Éthique",
     description: "La loyauté et le fair-play sur le terrain comme en dehors sont nos principes fondamentaux."
   },
   {
-    icon: <Trophy className="w-8 h-8 text-luynes-red" />,
+    icon: <Trophy className="w-8 h-8" />,
     title: "Excellence Sportive",
     description: "Nous visons le plus haut niveau tout en garantissant un encadrement technique de qualité."
   }
@@ -29,26 +30,26 @@ const values = [
 
 export const ClubPage = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-luynes-dark">
-        <div className="absolute inset-0">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-luynes-dark">
+        <div className="absolute inset-0 z-0">
           <img
-            src="/IMG_4248.jpg"
+            src="/Gemini_Generated_Image_jd7e9gjd7e9gjd7e.png"
             alt="Club Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-60 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-luynes-dark via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-luynes-dark/20 via-transparent to-luynes-dark"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="section-subtitle">Identité & Histoire</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-white tracking-tighter mb-6">
+            <span className="section-subtitle !text-white !opacity-80">Notre Identité</span>
+            <h1 className="text-7xl md:text-9xl font-extrabold text-white tracking-tighter leading-none">
               Le <span className="text-luynes-red">Club</span>
             </h1>
           </motion.div>
@@ -56,84 +57,120 @@ export const ClubPage = () => {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="section-title">Une Institution Provençale</h2>
-            <p className="text-slate-600 text-xl leading-relaxed mb-12">
-              Depuis 1947, Luynes Sports écrit son histoire au cœur du Pays d'Aix. Notre club est devenu un pilier du football régional, alliant ambition sportive et rôle social prépondérant.
-            </p>
+      <section className="py-32 bg-white relative">
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto text-center"
+          >
+            <motion.div variants={revealUp} className="mb-20">
+              <h2 className="section-title tracking-tighter">Une Institution <span className="text-luynes-red">Provençale</span></h2>
+              <p className="text-slate-500 text-xl leading-relaxed mb-12 font-medium max-w-3xl mx-auto">
+                Depuis 1947, Luynes Sports écrit son histoire au cœur du Pays d'Aix. Un pilier du football régional, alliant ambition et passion.
+              </p>
+            </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <motion.div 
+              variants={staggerContainer}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
+            >
               {stats.map((stat, idx) => (
-                <div key={idx} className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                  <p className="text-4xl font-bold text-slate-900 mb-1">{stat.value}</p>
-                  <p className="text-slate-500 text-xs tracking-tight font-semibold">{stat.label}</p>
-                </div>
+                <motion.div 
+                  key={idx} 
+                  variants={fadeIn}
+                  className="p-10 bg-slate-50 rounded-xl border border-slate-100 hover:border-luynes-red/20 transition-all duration-500 group"
+                >
+                  <p className="text-5xl font-extrabold text-slate-900 mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-500">{stat.value}</p>
+                  <p className="text-luynes-red text-[10px] font-bold uppercase tracking-[0.3em]">{stat.label}</p>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* History Section */}
-      <section className="py-24 bg-slate-50 overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2">
+      <section className="py-32 bg-slate-50 relative overflow-hidden">
+        {/* Decorative Text */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none select-none opacity-[0.03]">
+          <span className="text-[20vw] font-black uppercase leading-none whitespace-nowrap -rotate-90">
+            HERITAGE
+          </span>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row items-center gap-20"
+          >
+            <motion.div variants={revealUp} className="lg:w-1/2">
               <span className="section-subtitle">Notre Parcours</span>
               <h2 className="section-title">Plus de 75 ans de <span className="text-luynes-red">Football</span></h2>
-              <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+              <div className="space-y-6 text-slate-500 text-lg leading-relaxed font-medium">
                 <p>
-                  Tout commence après-guerre, sous l'impulsion de passionnés souhaitant redonner vie au village à travers le sport. Très vite, Luynes Sports se distingue par sa ferveur et ses résultats.
+                  Tout commence après-guerre, sous l'impulsion de passionnés souhaitant redonner vie au village à travers le sport. Luynes Sports se distingue par sa ferveur.
                 </p>
                 <p>
-                  Le stade Laurent Ruzzettu, véritable forteresse, a vu passer des générations de joueurs talentueux, certains ayant rejoint les rangs professionnels. Le club a connu ses plus belles heures en Coupe de France, faisant vibrer toute la région.
+                  Le stade Laurent Ruzzettu, véritable forteresse, a vu passer des générations de joueurs talentueux, certains ayant rejoint les rangs professionnels.
                 </p>
                 <p>
-                  Aujourd'hui, avec plus de 700 licenciés, nous sommes l'un des clubs les plus importants du district, fier de nos racines et tourné vers l'avenir avec notre équipe première en Régional 1.
+                  Aujourd'hui, avec plus de 700 licenciés, nous sommes fiers de nos racines et tournés vers l'avenir avec ambition.
                 </p>
               </div>
-            </div>
-            <div className="lg:w-1/2 relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl translate-y-8">
+            </motion.div>
+            
+            <motion.div variants={revealUp} className="lg:w-1/2 relative">
+              <div className="grid grid-cols-2 gap-6 scale-105">
+                <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-700">
                   <img src="/IMG_4249.jpg" alt="History 1" className="w-full h-full object-cover" />
                 </div>
-                <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl -skew-y-3 hover:skew-y-0 transition-transform duration-700 mt-12">
                   <img src="/IMG_4246.jpg" alt="History 2" className="w-full h-full object-cover" />
                 </div>
               </div>
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-luynes-red/5 rounded-full blur-3xl"></div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6 text-center mb-16">
-          <span className="section-subtitle">Ce qui nous anime</span>
-          <h2 className="section-title">Nos <span className="text-luynes-red">Valeurs</span></h2>
-        </div>
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {values.map((value, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="glass-card text-center"
-            >
-              <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-slate-100">
-                {value.icon}
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{value.title}</h3>
-              <p className="text-slate-500 leading-relaxed">{value.description}</p>
-            </motion.div>
-          ))}
-        </div>
+      <section className="py-32 bg-white">
+        <motion.div 
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="container mx-auto px-6"
+        >
+          <motion.div variants={revealUp} className="text-center mb-20">
+            <span className="section-subtitle">Ce qui nous anime</span>
+            <h2 className="section-title tracking-tighter">Nos <span className="text-luynes-red">Valeurs</span></h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, idx) => (
+              <motion.div
+                key={idx}
+                variants={revealUp}
+                className="p-10 bg-slate-50 border border-slate-100 rounded-3xl text-center group hover:shadow-xl transition-all duration-500"
+              >
+                <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center mx-auto mb-8 border border-slate-100 text-luynes-red group-hover:bg-luynes-red group-hover:text-white transition-all duration-500">
+                  <span className="group-hover:scale-125 transition-transform duration-500">
+                    {value.icon}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-extrabold text-slate-900 mb-4 tracking-tight">{value.title}</h3>
+                <p className="text-slate-500 leading-relaxed font-medium">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       <Footer />

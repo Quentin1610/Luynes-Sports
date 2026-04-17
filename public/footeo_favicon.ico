@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+              
+  
+  <meta name="msapplication-config" content="https://s1.static-footeo.com/footeo-browserconfig__ss8us4.xml" />
+  <link rel="apple-touch-icon" sizes="57x57" href="https://s2.static-footeo.com/footeo-apple-icon-57x57__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://s1.static-footeo.com/footeo-apple-icon-60x60__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://s1.static-footeo.com/footeo-apple-icon-72x72__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://s3.static-footeo.com/footeo-apple-icon-76x76__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://s2.static-footeo.com/footeo-apple-icon-114x114__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://s3.static-footeo.com/footeo-apple-icon-120x120__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://s2.static-footeo.com/footeo-apple-icon-144x144__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://s1.static-footeo.com/footeo-apple-icon-152x152__ss8us4.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://s3.static-footeo.com/footeo-apple-icon-180x180__ss8us4.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://s1.static-footeo.com/footeo-favicon-16x16__ss8us4.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://s3.static-footeo.com/footeo-favicon-32x32__ss8us4.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://s1.static-footeo.com/footeo-favicon-96x96__ss8us4.png">
+  <link rel="manifest" href="https://s3.static-footeo.com/footeo-manifest__ss8us4.json">
+  <meta name="theme-color" content="#00a8e7">
+
+  <script src="https://s1.static-footeo.com/common/js/clubeo-app__ss8us4.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  Clubeo.config({
+    Common: {
+      USER_IS_AUTHENTICATED: false,
+      USER_IS_STAFF: false,
+      TWITTER_OFFICIAL_ACCOUNT: 'footeo_officiel',
+    },
+    Comments: {
+      SAVE_COMMENT_URL: 'https://cluba-luynes-sports-50117.footeo.com/isicsComment/saveComment',
+      USER_LEVEL_STAFF: 'Staff'
+    }
+  });
+</script>
+
+  <script type="text/javascript"  src="https://www.google.com/jsapi"></script>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="https://s1.static-footeo.com/css/optimized_css/error__tdh431.css" />
+  <script type="text/javascript" src="https://s1.static-footeo.com/bower_components/modernizr/modernizr__ss8us4.js"></script>
+<script type="text/javascript" src="https://s3.static-footeo.com/js/optimized_js/common__tdh43b.js"></script>
+<script type="text/javascript" src="https://s3.static-footeo.com/js/optimized_js/frontend_default__tdh438.js"></script>
+<script type="text/javascript" src="https://s3.static-footeo.com/frontend/dist/js/search__t4sufw.js"></script>
+</head>
+<body class="footeo">
+
+
+
+  
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js"></script>
+<script>
+  function fbLoginCheck(response, params)
+  {
+    if(response.authResponse)
+    {
+      var portalLoginCheckUrl = 'https://www.footeo.com//auth/FbLoginCheck';
+
+      if ('undefined' != typeof params)
+      {
+        var query_parameters = [];
+        for (var param in params)
+          query_parameters.push(encodeURIComponent(param) + "=" + encodeURIComponent(params[param]));
+
+        window.location = portalLoginCheckUrl + '?'+query_parameters.join("&");
+        return false;
+      }
+
+      window.location = portalLoginCheckUrl;
+    }
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId : '115379605139500',
+      cookie     : true,
+      xfbml      : true,
+      version: 'v19.0'
+    });
+
+    window.fbApiInit = true;
+
+      };
+  window.addEventListener('turbo:frame-load', function (event) {
+    window.fbAsyncInit();
+  });
+</script>
+<div id="userbar-container">
+  
+
+
+
+  
+    
+<nav id="userbar" class="navbar navbar-default " role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" id="toggle-snap-2" class="hidden-sm hidden-md hidden-lg toggle-snap">
+        <span class="icon-menu-burger "></span>
+      </button>
+      
+              
+          </div>
+	  
+          
+  
+  
+<script>
+  function associate_facebook()
+  {
+    window.location.href = 'https://www.footeo.com//auth/associateFacebook';
+  }
+</script>
+
+        </div>
+</nav>
+
+<script>
+  function associate_facebook()
+  {
+    window.location.href = 'https://www.footeo.com//auth/associateFacebook';
+  }
+</script>
+
+
+  
+</div>
+
+<div id="error">
+  <a id="error__brand_logo" href="https://www.footeo.com/"><img width="116" height="29" alt="footeo : création de site internet gratuit pour club de foot" id="error_logo-footeo" src="https://s2.static-footeo.com/images/logo_footeo__ss8us5.png" /></a>
+
+ <h1 class="footeo"><span>erreur</span> <span>404</span> <span>VOTRE FRAPPE N'A PAS TROUVÉ LE CADRE !</span></span></h1>
+
+<div id="error_exit-links">
+    <a href="javascript:history.go(-1)" id="error_exit-links_previous-page">Page précédente</a>
+</div>
+</div>
+
+</body>
+</html>

@@ -24,8 +24,7 @@ export default {
         'luynes-slate-900': '#0f172a',
       },
       fontFamily: {
-        sans: ['Jost', 'system-ui', 'sans-serif'],
-        display: ['Jost', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

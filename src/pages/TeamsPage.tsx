@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Calendar, User, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { Footer } from '../components/sections/Footer';
+import { revealUp, staggerContainer, fadeIn } from '../constants/animations';
 
 const categories = [
   {
@@ -36,26 +37,26 @@ const categories = [
 
 export const TeamsPage = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-luynes-dark">
-        <div className="absolute inset-0">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-luynes-dark">
+        <div className="absolute inset-0 z-0">
           <img
-            src="/IMG_4249.jpg"
+            src="/Gemini_Generated_Image_6e4m6e4m6e4m6e4m.png"
             alt="Teams Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-60 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-luynes-dark via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-luynes-dark/20 via-transparent to-luynes-dark"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="section-subtitle">Formation & Excellence</span>
-            <h1 className="text-5xl md:text-7xl font-display font-extrabold text-white tracking-tighter mb-6">
+            <span className="section-subtitle !text-white !opacity-80">Nos Catégories</span>
+            <h1 className="text-7xl md:text-9xl font-extrabold text-white tracking-tighter leading-none">
               Nos <span className="text-luynes-red">Équipes</span>
             </h1>
           </motion.div>
@@ -63,42 +64,63 @@ export const TeamsPage = () => {
       </section>
 
       {/* Categories Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-white relative">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-24"
+          >
+            <motion.div variants={revealUp}>
+              <span className="section-subtitle">Formation & Excellence</span>
+              <h2 className="section-title tracking-tighter">Le parcours du <span className="text-luynes-red">Succès</span></h2>
+              <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                Du premier plateau d'éveil au haut niveau régional, découvrez l'ensemble de nos catégories.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
             {categories.map((cat, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={revealUp}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="space-y-6"
+                className="space-y-8"
               >
-                <h2 className="text-3xl font-display font-bold text-slate-900 tracking-tighter border-l-4 border-luynes-red pl-6">
-                  {cat.title}
-                </h2>
+                <div className="flex items-center gap-6">
+                  <div className="w-2 h-12 bg-luynes-red rounded-sm"></div>
+                  <h2 className="text-4xl font-black text-slate-900 tracking-tighter">
+                    {cat.title}
+                  </h2>
+                </div>
 
-                <div className="grid gap-4">
+                <div className="grid gap-6">
                   {cat.teams.map((team, tIdx) => (
-                    <div
+                    <motion.div
                       key={tIdx}
-                      className="glass-card flex items-center justify-between group cursor-pointer hover:bg-luynes-red/[0.02]"
+                      variants={fadeIn}
+                      className="glass-card flex items-center justify-between group cursor-pointer hover:bg-luynes-red transition-all duration-500 overflow-hidden relative"
                     >
-                      <div className="flex flex-col">
-                        <h3 className="text-xl font-semibold text-slate-900 group-hover:text-luynes-red transition-colors">
+                      <div className="absolute inset-0 bg-gradient-to-r from-luynes-red to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      <div className="flex flex-col relative z-10">
+                        <h3 className="text-2xl font-extrabold text-slate-900 group-hover:text-white transition-colors tracking-tight">
                           {team.name}
                         </h3>
-                        <p className="text-slate-500 text-sm font-medium">{team.level}</p>
+                        <p className="text-slate-500 text-sm font-bold group-hover:text-white/80 uppercase tracking-widest">{team.level}</p>
                       </div>
-                      <div className="flex items-center gap-6">
+                      <div className="relative z-10 flex items-center gap-6">
                         <div className="hidden md:block text-right">
-                          <p className="text-xs tracking-tighter font-bold text-slate-400">Objectif</p>
-                          <p className="text-sm font-semibold text-slate-700">{team.stats}</p>
+                          <p className="text-[10px] tracking-[0.2em] font-black text-luynes-red group-hover:text-white/60 transition-colors uppercase">Objectif</p>
+                          <p className="text-sm font-black text-slate-700 group-hover:text-white transition-colors">{team.stats}</p>
                         </div>
-
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
@@ -108,49 +130,62 @@ export const TeamsPage = () => {
       </section>
 
       {/* Practical Info Card */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="bg-luynes-dark rounded-[3rem] p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-luynes-red/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <section className="py-32 bg-slate-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute top-0 right-0 pointer-events-none select-none opacity-[0.03]">
+          <span className="text-[25vw] font-black uppercase translate-x-1/3 -translate-y-1/3">
+            GO
+          </span>
+        </div>
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div 
+            variants={revealUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="bg-luynes-dark rounded-[2rem] p-16 md:p-24 relative overflow-hidden shadow-2xl"
+          >
+            <div className="absolute top-0 right-0 w-2/3 h-full bg-luynes-red/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-20">
               <div className="lg:w-1/2">
-                <h2 className="text-4xl font-display font-bold text-white tracking-tight mb-6 leading-tight">
-                  Prêt à rejoindre <br /><span className="text-luynes-red">l'aventure sportive ?</span>
+                <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-none">
+                  Prêt à rejoindre <br /><span className="text-luynes-red">l'aventure ?</span>
                 </h2>
-                <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                  Les inscriptions sont ouvertes pour toutes les catégories. Notre équipe pédagogique est à votre disposition pour toute question relative aux licences et aux entraînements.
+                <p className="text-slate-400 text-xl mb-12 leading-relaxed font-medium">
+                  Les inscriptions sont ouvertes pour 2026-2027. Rejoignez l'un des clubs les plus dynamiques de la région.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex items-center gap-4 text-white">
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-luynes-red">
-                      <Calendar size={20} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                  <div className="flex items-center gap-6 text-white group">
+                    <div className="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center text-luynes-red group-hover:bg-luynes-red group-hover:text-white transition-all duration-500">
+                      <Calendar size={28} />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-500 font-bold">Saison</p>
-                      <p className="font-semibold">2026 - 2027</p>
+                      <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1">Saison</p>
+                      <p className="text-xl font-extrabold">2026 - 2027</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 text-white">
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-luynes-red">
-                      <MapPin size={20} />
+                  <div className="flex items-center gap-6 text-white group">
+                    <div className="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center text-luynes-red group-hover:bg-luynes-red group-hover:text-white transition-all duration-500">
+                      <MapPin size={28} />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-500 font-bold">Lieu</p>
-                      <p className="font-semibold">Stade L. Ruzzettu</p>
+                      <p className="text-xs text-slate-500 font-black uppercase tracking-widest mb-1">Lieu</p>
+                      <p className="text-xl font-black">Aix-Luynes</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="lg:w-1/3 w-full">
-                <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 space-y-4">
-                  <h3 className="text-white font-semibold text-xl mb-4">Besoin d'infos ?</h3>
-                  <button className="btn-primary w-full">Dossier d'inscription</button>
-                  <button className="btn-secondary w-full !text-white !border-white/20 hover:!bg-white/10">Plannings entraînements</button>
+              <div className="lg:w-5/12 w-full">
+                <div className="glass-card !bg-white/5 backdrop-blur-3xl !border-white/10 p-10 space-y-6">
+                  <h3 className="text-white font-black text-2xl mb-6 tracking-tight">Besoin d'aide ?</h3>
+                  <button className="btn-primary w-full py-6 text-base tracking-widest">Dossier d'inscription</button>
+                  <button className="btn-secondary w-full py-6 text-base !text-white !border-white/20 hover:!bg-white/10 tracking-widest">Planning entraînements</button>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

@@ -4,41 +4,61 @@ import { About } from '../components/sections/About';
 import { Teams } from '../components/sections/Teams';
 import { News } from '../components/sections/News';
 import { Sponsors } from '../components/sections/Sponsors';
+import { StatsSection } from '../components/sections/Stats';
 import { Footer } from '../components/sections/Footer';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { revealUp } from '../constants/animations';
 
 export const Home = () => {
   return (
     <>
-      <main>
+      <main className="overflow-hidden">
         <Hero />
         
-        <section className="py-24 bg-white relative">
-          <About />
-          <div className="container mx-auto px-6 text-center mt-12">
-            <Link to="/le-club" className="btn-secondary flex items-center gap-3 w-fit mx-auto group">
-              En savoir plus sur le club <ArrowRight size={18} className="text-luynes-red group-hover:translate-x-1 transition-transform" />
+        <About />
+        <div className="container mx-auto px-6 text-center -mt-16 mb-24 relative z-10">
+          <motion.div
+            variants={revealUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <Link to="/le-club" className="btn-secondary inline-flex items-center gap-4 group">
+              Découvrir notre histoire <ArrowRight size={18} className="text-luynes-red group-hover:translate-x-2 transition-transform" />
             </Link>
-          </div>
-        </section>
+          </motion.div>
+        </div>
 
-        <section className="py-24 bg-slate-50 relative">
-          <Teams />
-          <div className="container mx-auto px-6 text-center mt-12">
-            <Link to="/equipes" className="btn-secondary flex items-center gap-3 w-fit mx-auto group">
-              Voir toutes nos catégories <ArrowRight size={18} className="text-luynes-red group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </section>
+        <StatsSection />
 
-        <section className="py-24 bg-white relative">
-          <News />
-          <div className="container mx-auto px-6 text-center mt-12">
-            <Link to="/actualites" className="btn-secondary flex items-center gap-3 w-fit mx-auto group">
-              Toutes les actualités <ArrowRight size={18} className="text-luynes-red group-hover:translate-x-1 transition-transform" />
+        <Teams />
+        <div className="container mx-auto px-6 text-center -mt-12 pb-24 bg-transparent relative z-10">
+          <motion.div
+            variants={revealUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <Link to="/equipes" className="btn-secondary inline-flex items-center gap-4 group">
+              Voir toutes les catégories <ArrowRight size={18} className="text-luynes-red group-hover:translate-x-2 transition-transform" />
             </Link>
-          </div>
-        </section>
+          </motion.div>
+        </div>
+
+        <News />
+        <div className="container mx-auto px-6 text-center -mt-12 pb-24 bg-transparent relative z-10">
+          <motion.div
+            variants={revealUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <Link to="/actualites" className="btn-secondary inline-flex items-center gap-4 group">
+              Toutes les actualités <ArrowRight size={18} className="text-luynes-red group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
 
         <Sponsors />
       </main>
